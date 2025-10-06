@@ -1,6 +1,6 @@
-.document-fields__fields > .rich-text-lexical p {
-  font-size: 30px !important;
+.LexicalEditorTheme__paragraph:not(.tabs-field *) {
+  font-size: 32px;
   font-weight: 800;
-  line-height: 1.125;
+  line-height: 1.25;
   letter-spacing: 0;
 }

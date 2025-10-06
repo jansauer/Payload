@@ -1,6 +1,6 @@
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { RichTextField } from "payload";
-// import './headline.scss';
+import "./headline.scss";
 
 export const headline: RichTextField = {
   name: "headline",
