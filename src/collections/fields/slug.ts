@@ -1,7 +1,7 @@
-import { TextField } from 'payload'
+import { TextField } from "payload";
 
 export const slug: TextField = {
   name: "slug",
-  label: 'Slug',
+  label: "Slug",
   type: "text",
 };

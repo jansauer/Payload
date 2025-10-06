@@ -2,7 +2,7 @@ import path from "path";
 import sharp from "sharp";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
-import { gcsStorage } from '@payloadcms/storage-gcs'
+import { gcsStorage } from "@payloadcms/storage-gcs";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 
@@ -57,8 +57,8 @@ export default buildConfig({
       collections: {
         media: true,
       },
-      bucket: 'payload-media-v1',
-      options: { },
+      bucket: "payload-media-v1",
+      options: {},
     }),
   ],
 });

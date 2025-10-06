@@ -1,8 +1,8 @@
-import { SelectField } from 'payload'
+import { SelectField } from "payload";
 
 export const marker: SelectField = {
   name: "marker",
-  type: 'select',
+  type: "select",
   options: [
     {
       label: "Run",

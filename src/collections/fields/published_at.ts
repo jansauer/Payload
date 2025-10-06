@@ -1,5 +1,5 @@
-import { Story } from '@/payload-types'
-import { CollectionBeforeValidateHook, DateField } from 'payload'
+import { Story } from "@/payload-types";
+import { CollectionBeforeValidateHook, DateField } from "payload";
 
 export const published_at: DateField = {
   name: "publishedAt",
@@ -14,7 +14,9 @@ export const published_at: DateField = {
   },
 };
 
-export const set_published_at: CollectionBeforeValidateHook<Story> = ({ data }) => {
+export const set_published_at: CollectionBeforeValidateHook<Story> = ({
+  data,
+}) => {
   if (!data?.publishedAt && data?._status === "published") {
     const now = new Date();
 

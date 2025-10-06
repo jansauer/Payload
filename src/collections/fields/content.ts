@@ -1,5 +1,5 @@
-import { code } from '@/collections/blocks/code'
-import { strava } from '@/collections/blocks/strava'
+import { code } from "@/collections/blocks/code";
+import { strava } from "@/collections/blocks/strava";
 import {
   BlockquoteFeature,
   BlocksFeature,
@@ -16,8 +16,8 @@ import {
   ParagraphFeature,
   StrikethroughFeature,
   UnorderedListFeature,
-} from '@payloadcms/richtext-lexical'
-import type { RichTextField } from 'payload'
+} from "@payloadcms/richtext-lexical";
+import type { RichTextField } from "payload";
 
 export const content: RichTextField = {
   name: "content",
@@ -28,17 +28,15 @@ export const content: RichTextField = {
       hideGutter: true,
       placeholder: "Want to turn it into a full story? Keep writing here…",
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    features: ({ defaultFeatures }) => {
+    features: () => {
       return [
-        // ...defaultFeatures,
         InlineToolbarFeature(),
 
         // Blocks
-        ParagraphFeature(), // Unclear for what
         HeadingFeature({
-          enabledHeadingSizes: [ 'h2', 'h3', 'h4'],
+          enabledHeadingSizes: ["h2", "h3", "h4"],
         }),
+        ParagraphFeature(), // Unclear for what
         BlockquoteFeature(),
         OrderedListFeature(),
         UnorderedListFeature(),

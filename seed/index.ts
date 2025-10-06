@@ -1,12 +1,12 @@
-import { Story } from '@/payload-types'
-import * as console from 'node:console'
-import { getPayload } from 'payload'
-import config from '../src/payload.config'
-import activities from './activities.json';
-import {setTimeout} from 'node:timers/promises';
+import { Story } from "@/payload-types";
+import * as console from "node:console";
+import { getPayload } from "payload";
+import config from "../src/payload.config";
+import activities from "./activities.json";
+import { setTimeout } from "node:timers/promises";
 
-type RichText = Story['headline'];
-type RichTextChild = Story['headline']['root']['children'][number];
+type RichText = Story["headline"];
+type RichTextChild = Story["headline"]["root"]["children"][number];
 
 const payload = await getPayload({ config });
 
@@ -20,26 +20,26 @@ for (const activity of activities) {
       nanoid: activity.nanoid,
       headline: richTextRoot(richTextParagraph(activity.text)),
       content: richTextRoot(richTextStrava(activity.strava)),
-      marker: activity.type as Story['marker'],
+      marker: activity.type as Story["marker"],
       publishedAt: activity.date,
       createdAt: activity.date,
       updatedAt: activity.date,
       _status: "published",
-    }
+    },
   });
 }
 
 function richTextRoot(child: RichTextChild): RichText {
   return {
     root: {
-      children: [ child ],
+      children: [child],
       direction: null,
       format: "",
       indent: 0,
       type: "root",
-      version: 1
-    }
-  }
+      version: 1,
+    },
+  };
 }
 
 function richTextParagraph(text: string): RichTextChild {
@@ -59,10 +59,10 @@ function richTextParagraph(text: string): RichTextChild {
         style: "",
         text,
         type: "text",
-        version: 1
-      }
-    ]
-  }
+        version: 1,
+      },
+    ],
+  };
 }
 
 function richTextStrava(id: string): RichTextChild {
@@ -73,7 +73,7 @@ function richTextStrava(id: string): RichTextChild {
     fields: {
       id,
       blockName: "",
-      blockType: "strava"
-    }
-  }
+      blockType: "strava",
+    },
+  };
 }
