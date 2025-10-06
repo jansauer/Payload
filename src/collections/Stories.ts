@@ -14,7 +14,7 @@ export const Stories: CollectionConfig = {
   admin: {
     defaultColumns: ["headline", "_status", "createdAt"],
     livePreview: {
-      url: ({ data }) => `${process.env.NEXT_PUBLIC_SERVER_URL}/${data.id}`,
+      url: ({ data }) => `https://jansauer.de/${data.nanoid}`,
     },
     pagination: {
       defaultLimit: 20,
