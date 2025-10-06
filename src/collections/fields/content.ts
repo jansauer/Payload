@@ -4,7 +4,6 @@ import {
   BlockquoteFeature,
   BlocksFeature,
   BoldFeature,
-  ChecklistFeature,
   HeadingFeature,
   HorizontalRuleFeature,
   InlineCodeFeature,
@@ -16,6 +15,7 @@ import {
   ParagraphFeature,
   StrikethroughFeature,
   UnorderedListFeature,
+  UploadFeature,
 } from "@payloadcms/richtext-lexical";
 import type { RichTextField } from "payload";
 
@@ -32,6 +32,13 @@ export const content: RichTextField = {
       return [
         InlineToolbarFeature(),
 
+        // Inline
+        BoldFeature(),
+        ItalicFeature(),
+        StrikethroughFeature(),
+        InlineCodeFeature(),
+        LinkFeature(),
+
         // Blocks
         HeadingFeature({
           enabledHeadingSizes: ["h2", "h3", "h4"],
@@ -40,23 +47,19 @@ export const content: RichTextField = {
         BlockquoteFeature(),
         OrderedListFeature(),
         UnorderedListFeature(),
-        ChecklistFeature(),
         HorizontalRuleFeature(),
+        UploadFeature({
+          collections: {
+            media: {
+              fields: [],
+            },
+          },
+        }),
 
         // Payload blocks
         BlocksFeature({
-          blocks: [
-            code,
-            strava,
-          ]
+          blocks: [code, strava],
         }),
-
-        // Inline
-        BoldFeature(),
-        ItalicFeature(),
-        StrikethroughFeature(),
-        InlineCodeFeature(),
-        LinkFeature(),
       ];
     },
   }),
