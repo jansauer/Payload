@@ -7,8 +7,8 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 
 import { Stories } from "@/collections/Stories";
-import { Users } from "./collections/Users";
-import { Media } from "./collections/Media";
+import { Media } from "@/collections/Media";
+import { Users } from "@/collections/Users";
 
 if (!process.env.PAYLOAD_SECRET && !process.env.NEXT_PHASE) {
   throw new Error("PAYLOAD_SECRET is not defined");
