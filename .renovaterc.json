@@ -1,11 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "packageRules": [
-    {
-      "description": "Do not update node above 22.x",
-      "matchDepNames": ["node", "@types/node"],
-      "allowedVersions": "^22"
-    }
-  ]
+  "extends": ["config:recommended"]
 }
