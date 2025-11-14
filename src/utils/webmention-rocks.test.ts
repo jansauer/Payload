@@ -117,5 +117,4 @@ describe('Webmention Endpoint Discovery', () => {
     expect(await discoverWebmentionEndpoint('https://webmention.rocks/test/23/page'))
       .toMatch(/^https:\/\/webmention\.rocks\/test\/23\/webmention-endpoint\/[\w\d]{20}$/)
   })
-
 })

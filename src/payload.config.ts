@@ -1,6 +1,7 @@
+import { ReceiveWebmentionJob } from '@/utils/recevie-webmention-job'
 import path from "path";
 import sharp from "sharp";
-import { buildConfig } from "payload";
+import { buildConfig, type CollectionConfig } from 'payload'
 import { fileURLToPath } from "url";
 import { gcsStorage } from "@payloadcms/storage-gcs";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
@@ -40,6 +41,15 @@ export default buildConfig({
     },
   },
   collections: [Stories, Media, Users],
+  jobs: {
+    autoRun: [{
+      allQueues: true,
+    }],
+    jobsCollectionOverrides: doNotHideDefaultJobsCollection,
+    tasks: [
+      ReceiveWebmentionJob
+    ],
+  },
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
@@ -62,3 +72,14 @@ export default buildConfig({
     }),
   ],
 });
+
+function doNotHideDefaultJobsCollection({ defaultJobsCollection }: {
+  defaultJobsCollection: CollectionConfig;
+}): CollectionConfig {
+  if (!defaultJobsCollection.admin) {
+    defaultJobsCollection.admin = {}
+  }
+
+  defaultJobsCollection.admin.hidden = false
+  return defaultJobsCollection
+}

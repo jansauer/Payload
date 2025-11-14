@@ -1,5 +1,5 @@
 import { Story } from "@/payload-types";
-import { CollectionBeforeValidateHook, DateField } from "payload";
+import { CollectionBeforeValidateHook, CollectionAfterChangeHook, DateField, FieldHook } from 'payload'
 
 export const published_at: DateField = {
   name: "publishedAt",

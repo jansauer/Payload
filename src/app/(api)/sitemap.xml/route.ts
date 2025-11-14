@@ -1,8 +1,8 @@
 import { SITE_URL } from '@/site'
-import { payload } from '../../../payload';
+import { payloadLocal } from '../../../payload-local';
 
 export async function GET() {
-  const stories = await payload.find({
+  const stories = await payloadLocal.find({
     collection: 'stories',
     where: {
       _status: {

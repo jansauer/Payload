@@ -1,6 +1,6 @@
+import { extractPlainText } from '@/payload-local'
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import { RichTextField } from "payload";
-import "./headline.scss";
+import { RichTextField, TextField } from 'payload'
 
 export const headline: RichTextField = {
   name: "headline",
@@ -18,6 +18,19 @@ export const headline: RichTextField = {
     },
   }),
 };
+
+export const headlinePlain: TextField = {
+  name: 'headlinePlain',
+  type: 'text',
+  virtual: true,
+  hooks: {
+    afterRead: [
+      ({ siblingData }) => {
+        return siblingData.headline?.root?.children[0].children[0].text as string || "";
+      }
+    ]
+  }
+}
 
 function random(array: Array<string>) {
   return array[~~(Math.random() * array.length)];

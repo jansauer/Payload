@@ -1,11 +1,11 @@
-import { content } from "@/collections/fields/content";
+import { content, contentPlain } from '@/collections/fields/content'
 import { marker } from "@/collections/fields/marker";
 import { nano_id } from "@/collections/fields/nano_id";
 import {
   published_at,
   set_published_at,
 } from "@/collections/fields/published_at";
-import { headline } from "@/collections/fields/headline";
+import { headline, headlinePlain } from '@/collections/fields/headline'
 import { slug } from "@/collections/fields/slug";
 import type { CollectionConfig } from "payload";
 
@@ -26,12 +26,13 @@ export const Stories: CollectionConfig = {
   },
   fields: [
     headline,
+    headlinePlain,
     {
       type: "tabs",
       tabs: [
         {
           label: "Content",
-          fields: [content],
+          fields: [content, contentPlain],
         },
         {
           label: "Meta",
